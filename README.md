@@ -1,5 +1,5 @@
 # Android
 
-DGSW-Smart-Farm Server
+DGSW-Smart-Farm Android
 *************
 기능
