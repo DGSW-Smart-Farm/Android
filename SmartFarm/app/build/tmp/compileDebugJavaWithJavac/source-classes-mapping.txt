@@ -1,2 +1,0 @@
-com/example/smartfarm/BuildConfig.java
- com.example.smartfarm.BuildConfig
