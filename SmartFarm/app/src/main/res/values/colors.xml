@@ -14,5 +14,7 @@
     <color name="stateName">#E5333333</color>
     <color name="detailBackground">#F6F4E7</color>
     <color name="detailLogoText">#3B6074</color>
-
+    <color name="detailText">#333333</color>
+    <color name="waterProgress">#77ADFF</color>
+    <color name="waterProgressNone">#E7E7E7</color>
 </resources>
