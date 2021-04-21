@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="splashBackground">#F6F4E7</color>
+    <color name="mainStateColor">#40474747</color>
+    <color name="farmState">#474747</color>
+    <color name="stateName">#E5333333</color>
+    <color name="detailBackground">#F6F4E7</color>
+    <color name="detailLogoText">#3B6074</color>
 </resources>
