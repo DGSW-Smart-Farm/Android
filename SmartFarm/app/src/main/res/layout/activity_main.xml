@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <data>
         <variable
             name="activity"
             type="com.example.smartfarm.MainActivity" />
     </data>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +53,6 @@
             android:layout_marginTop="-130dp"
             android:background="@drawable/corner"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/farmTextView"
                 android:layout_width="match_parent"

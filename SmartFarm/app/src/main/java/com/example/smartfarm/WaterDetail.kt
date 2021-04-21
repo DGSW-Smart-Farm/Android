@@ -1,5 +1,4 @@
 package com.example.smartfarm
-
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
