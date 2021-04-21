@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LedDetailActivity">
+
+    <ImageView
+        android:id="@+id/led_background"
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        android:background="@color/detailBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/led_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/SmartFarm"
+        android:textColor="@color/detailLogoText"
+        android:textSize="24sp"
+        android:fontFamily="@font/nanummyeongjobold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/led_background" />
+
+    <ImageView
+        android:id="@+id/led_backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="39dp"
+        android:src="@drawable/ic_backbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/led_title_img"
+        android:layout_width="337dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="36dp"
+        android:src="@drawable/led_title_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/led_title" />
+
+    <TextView
+        android:id="@+id/LED"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="17dp"
+        android:fontFamily="@font/nanumsquareac"
+        android:text="LED"
+        android:textColor="#fff"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="@+id/led_title_img"
+        app:layout_constraintStart_toStartOf="@+id/led_title_img" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="42dp"
+        android:src="@drawable/led_state"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/led_title_img" />
+
+    <ImageView
+        android:id="@+id/led_state_img"
+        android:layout_width="113dp"
+        android:layout_height="113dp"
+        android:src="@drawable/led_state_img"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="118dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/led_title_img" />
+
+    <TextView
+        android:id="@+id/led_state_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="141dp"
+        android:fontFamily="@font/nanumsquareac"
+        android:text="햇빛이 부족해요"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/led_state_img"
+        app:layout_constraintTop_toBottomOf="@+id/led_title_img" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/nanumsquareac"
+        android:text="LED 기능을 이용해서 빛을 늘려주세요"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/led_state_img"
+        app:layout_constraintTop_toBottomOf="@+id/led_state_txt" />
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="42dp"
+        android:src="@drawable/led_control_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/led_state_img" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
