@@ -60,8 +60,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="29dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_backbtn"
                 android:onClick="@{() -> waterDetail.backBtnOnclick()}"
+                android:src="@drawable/ic_backbtn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -120,8 +120,8 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.267"
                             app:progress_background_color="@color/waterProgressNone"
-                            app:progress_start_color="@color/waterProgress"
                             app:progress_end_color="@color/waterProgress"
+                            app:progress_start_color="@color/waterProgress"
                             app:progress_stroke_cap="round"
                             app:progress_stroke_width="20dp "
                             app:progress_text_color="@color/detailText"
@@ -153,6 +153,50 @@
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/watering" />
+
+                    <NumberPicker
+                        android:id="@+id/onOffPicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="48dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.34"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="48dp"
+                        android:text="실행"
+                        android:textStyle="bold"
+                        android:onClick="@{() -> waterDetail.onOffBtnOnclick()}"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/nanumsquareac"
+                        android:background="@drawable/on_off_button_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/onOffPicker"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </ScrollView>

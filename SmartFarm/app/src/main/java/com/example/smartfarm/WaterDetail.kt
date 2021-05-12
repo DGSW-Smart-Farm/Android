@@ -1,4 +1,5 @@
 package com.example.smartfarm
+
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -8,6 +9,7 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.smartfarm.databinding.ActivityWaterDetailBinding
 
@@ -17,6 +19,7 @@ class WaterDetail : AppCompatActivity() {
     lateinit var spannable2: SpannableStringBuilder
 
     var waterValue: Int = 0
+    private val pickerValues = arrayOf("Off", "On")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,10 @@ class WaterDetail : AppCompatActivity() {
         binding.waterDetail = this
 
         binding.waterImage.bringToFront()
+        binding.onOffPicker.minValue = 0
+        binding.onOffPicker.maxValue = pickerValues.size - 1
+        binding.onOffPicker.displayedValues = pickerValues
+
 
         getWaterValue()
 
@@ -33,8 +40,8 @@ class WaterDetail : AppCompatActivity() {
 
     private fun getWaterValue() {
         var intent = getIntent()
-        if(intent.hasExtra("waterValue")){
-            waterValue = intent.getIntExtra("waterValue",0)
+        if (intent.hasExtra("waterValue")) {
+            waterValue = intent.getIntExtra("waterValue", 0)
         }
     }
 
@@ -72,7 +79,11 @@ class WaterDetail : AppCompatActivity() {
         )
     }
 
-    fun backBtnOnclick(){
+    fun onOffBtnOnclick() {
+        Log.d("123", "${binding.onOffPicker.value}")
+    }
+
+    fun backBtnOnclick() {
         finish()
     }
 }
