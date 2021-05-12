@@ -1,69 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <data>
+        <variable
+            name="activity"
+            type="com.example.smartfarm.MainActivity" />
+    </data>
 
-        <View
-            android:id="@+id/viewImage"
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:background="@drawable/background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/smartFarmText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="80dp"
-            android:fontFamily="@font/nanumsquareac"
-            android:text="@string/SmartFarm"
-            android:textColor="@color/white"
-            android:textSize="36sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/viewImage" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginTop="-160dp"
-        android:background="@drawable/corner"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/farmTextView"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/viewImage"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:background="@drawable/background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/smartFarmText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/novirus"
+                android:text="@string/SmartFarm"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/viewImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:fontFamily="@font/sdswagger"
-            android:text="@string/farmState"
-            android:textSize="36sp" />
-
-        <ScrollView
-            android:layout_margin="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="-130dp"
+            android:background="@drawable/corner"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/farmTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
+                android:layout_margin="32dp"
+                android:fontFamily="@font/sdswagger"
+                android:text="@string/farmState"
+                android:textColor="@color/farmState"
+                android:textSize="28sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:onClick="@{() -> activity.waterStateViewClick()}"
+                        android:id="@+id/waterStateLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/dewImageView"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_margin="5dp"
+                            app:srcCompat="@drawable/water_ic" />
+
+                        <TextView
+                            android:id="@+id/waterTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/dxmovie"
+                            android:text="수분"
+                            android:textColor="@color/stateName"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/waterStateText"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/main_corner"
+                            android:fontFamily="@font/dxmovie"
+                            android:gravity="center"
+                            android:text="50%"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tempStateLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/tempmageView"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_margin="5dp"
+                            app:srcCompat="@drawable/temp_ic" />
+
+                        <TextView
+                            android:id="@+id/tempTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/dxmovie"
+                            android:text="온도"
+                            android:textColor="@color/stateName"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/tempStateText"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/main_corner"
+                            android:fontFamily="@font/dxmovie"
+                            android:gravity="center"
+                            android:text="24도"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sunStateLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/sunmageView"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_margin="5dp"
+                            app:srcCompat="@drawable/sun_ic" />
+
+                        <TextView
+                            android:id="@+id/sunTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/dxmovie"
+                            android:text="햇빛"
+                            android:textColor="@color/stateName"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/sunStateText"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/main_corner"
+                            android:fontFamily="@font/dxmovie"
+                            android:gravity="center"
+                            android:text="355mm"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cameraStateLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/cameramageView"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_margin="5dp"
+                            app:srcCompat="@drawable/camera_ic" />
+
+                        <TextView
+                            android:id="@+id/cameraTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/dxmovie"
+                            android:text="카메라"
+                            android:textColor="@color/stateName"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/cameraStateText"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/main_corner"
+                            android:fontFamily="@font/dxmovie"
+                            android:gravity="center"
+                            android:text="더보기"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>
