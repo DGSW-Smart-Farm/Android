@@ -29,4 +29,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun tempStateViewClick(){
+        val intent = Intent(this, TempDetail::class.java)
+        intent.putExtra("tempValue", 25)
+        startActivity(intent)
+    }
+
 }
