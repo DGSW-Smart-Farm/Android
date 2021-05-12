@@ -23,4 +23,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun ledStateViewClick(){
+        val intent = Intent(this, LedDetailActivity::class.java)
+        intent.putExtra("ledValue", 255)
+        startActivity(intent)
+    }
+
 }

@@ -17,4 +17,6 @@
     <color name="detailText">#333333</color>
     <color name="waterProgress">#77ADFF</color>
     <color name="waterProgressNone">#E7E7E7</color>
+
+    <color name="onOffBtnColor">#363636</color>
 </resources>
