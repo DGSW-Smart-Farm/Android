@@ -5,5 +5,7 @@
 
     <string name="SmartFarm">SmartFarm</string>
     <string name="farmState">농장 상태</string>
+    <string name="ledState"><b>햇빛이</b> 부족해요</string>
+    <string name="ledControl"><b>LED 기능을</b> 이용해서 \n빛을 늘려주세요</string>
 
 </resources>
