@@ -1,16 +1,19 @@
 package com.example.smartfarm
 
+import android.R.attr.animation
+import android.animation.ValueAnimator
 import android.graphics.Color
 import android.graphics.Typeface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.smartfarm.databinding.ActivityWaterDetailBinding
+
 
 class WaterDetail : AppCompatActivity() {
     lateinit var binding: ActivityWaterDetailBinding
@@ -37,52 +40,143 @@ class WaterDetail : AppCompatActivity() {
         // Extra 값 받아오기
         getWaterValue()
 
-        initTextView("수분이 부족해요", "물주기 기능을 이용해 물을 주세요")
-        initCircleProgress()
+        initTextView()
+        setCircleProgress()
     }
 
     private fun getWaterValue() {
-        var intent = getIntent()
+        var intent = intent
         if (intent.hasExtra("waterValue")) {
             waterValue = intent.getIntExtra("waterValue", 0)
         }
         if (intent.hasExtra("waterState")){
-            waterState = intent.getIntExtra("waterState", 0)
+            //waterState = intent.getIntExtra("waterState", 0)
+            waterState = -2
+        } else {
+            waterState = -2; // 값을 전달 받지 못했을 때
         }
     }
 
-    private fun initCircleProgress() {
-        binding.waterCirclebar.progress = waterValue
+    private fun setCircleProgress() {
+        val animator = ValueAnimator.ofInt(0, waterValue)
+        animator.addUpdateListener {
+            val progress = animator.animatedValue as Int
+            binding.waterCirclebar.progress = progress
+        }
+        animator.duration = 1500
+        animator.start()
     }
 
-    private fun initTextView(str1: String, str2: String) { // 설명 text 굵기 조절
-        spannable1 = SpannableStringBuilder(str1)
-        spannable1.setSpan(
-            ForegroundColorSpan(Color.BLACK),
-            0, // start
-            2, // end
-            Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-        )
-        spannable1.setSpan(
-            StyleSpan(Typeface.BOLD),
-            0, // start
-            2, // end
-            Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-        )
+    private fun initTextView() { // 설명 text 굵기 조절
+        if(waterState == -1){
+            val str1: String = "수분이 부족해요"
+            val str2: String = "물주기 기능을 이용해 물을 주세요"
 
-        spannable2 = SpannableStringBuilder(str2)
-        spannable2.setSpan(
-            ForegroundColorSpan(Color.BLACK),
-            0, // start
-            6, // end
-            Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-        )
-        spannable2.setSpan(
-            StyleSpan(Typeface.BOLD),
-            0, // start
-            6, // end
-            Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-        )
+            spannable1 = SpannableStringBuilder(str1)
+            spannable1.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, // start
+                2, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable1.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0, // start
+                2, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+
+            spannable2 = SpannableStringBuilder(str2)
+            spannable2.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, // start
+                6, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable2.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0, // start
+                6, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+        } else if(waterState == 0){
+            val str1: String = "수분이 적당해요"
+            val str2: String = "수분이 아주 완벽한 상태에요"
+
+            spannable1 = SpannableStringBuilder(str1)
+            spannable1.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, // start
+                2, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable1.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0, // start
+                2, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+
+            spannable2 = SpannableStringBuilder(str2)
+            spannable2.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                3, // start
+                9, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable2.setSpan(
+                StyleSpan(Typeface.BOLD),
+                3, // start
+                9, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+        } else if (waterState == 1){
+            val str1: String = "수분이 과해요"
+            val str2: String = "과유불급"
+
+            spannable1 = SpannableStringBuilder(str1)
+            spannable1.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, // start
+                2, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable1.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0, // start
+                2, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+
+            spannable2 = SpannableStringBuilder(str2)
+            spannable2.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, // start
+                3, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable2.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0, // start
+                3, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+        } else {
+            spannable1 = SpannableStringBuilder("값을 전달받지")
+            spannable1.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, // start
+                7, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable1.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0, // start
+                7, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable2 = SpannableStringBuilder("못했습니다.")
+        }
     }
 
     fun onOffBtnOnclick() { // numberPicker 버튼 클릭 시
