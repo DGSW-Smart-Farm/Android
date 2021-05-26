@@ -59,15 +59,15 @@ class MainViewModel : ViewModel() {
                     "123",
                     "${response.body()?.humidityGnd?.value}  ${response.body()?.temp?.value}  ${response.body()?.led?.status!!}"
                 )
-                MainViewModel().waterStateValue.value = response.body()?.humidityGnd?.value
-                MainViewModel().waterStateResult.value = response.body()?.humidityGnd?.status
-                MainViewModel().tempStateValue.value = response.body()?.temp?.value
-                MainViewModel().tempStateResult.value = response.body()?.temp?.status
-                MainViewModel().ledstatus.value = response.body()?.led?.status!!
+                waterStateValue.value = response.body()?.humidityGnd?.value
+                waterStateResult.value = response.body()?.humidityGnd?.status
+                tempStateValue.value = response.body()?.temp?.value
+                tempStateResult.value = response.body()?.temp?.status
+                ledstatus.value = response.body()?.led?.status!!
 
                 Log.e(
                     "123",
-                    "${MainViewModel().waterStateValue.value} ${MainViewModel().tempStateValue.value} ${MainViewModel().ledstatus.value}"
+                    "${waterStateValue.value} ${tempStateValue.value} ${ledstatus.value}"
                 )
 
                 mainViewText()
@@ -76,16 +76,16 @@ class MainViewModel : ViewModel() {
     }
 
     private fun mainViewText() {
-        if(MainViewModel().ledstatus.value!!){
-            MainViewModel().ledText.value = "ON"
+        if(ledstatus.value!!){
+            ledText.value = "ON"
         } else {
-            MainViewModel().ledText.value = "OFF"
+            ledText.value = "OFF"
         }
 
-        MainViewModel().waterText.value = "${MainViewModel().waterStateValue.value}%"
-        MainViewModel().tempText.value = "${MainViewModel().tempStateValue.value}도"
+        waterText.value = "${waterStateValue.value}%"
+        tempText.value = "${tempStateValue.value}도"
 
-        Log.e("123", "${MainViewModel().ledText.value}  ${MainViewModel().waterText.value} ${MainViewModel().tempText.value}")
+        Log.e("123", "${ledText.value}  ${waterText.value} ${tempText.value}")
     }
 }
 
