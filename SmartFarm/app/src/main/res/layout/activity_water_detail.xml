@@ -45,7 +45,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/nanummyeongjobold"
                 android:gravity="center"
-                android:text="Smart Farm"
+                android:text="@string/detailViewTitle"
                 android:textColor="@color/detailLogoText"
                 android:textSize="24sp"
                 android:textStyle="bold"

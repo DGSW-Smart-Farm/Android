@@ -43,13 +43,13 @@ class TempDetail : AppCompatActivity() {
         spannable1.setSpan(
             ForegroundColorSpan(Color.BLACK),
             0, // start
-            2, // end
+            6, // end
             Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         )
         spannable1.setSpan(
             StyleSpan(Typeface.BOLD),
             0, // start
-            2, // end
+            6, // end
             Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         )
 
@@ -57,18 +57,18 @@ class TempDetail : AppCompatActivity() {
         spannable2.setSpan(
             ForegroundColorSpan(Color.BLACK),
             0, // start
-            6, // end
+            12, // end
             Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         )
         spannable2.setSpan(
             StyleSpan(Typeface.BOLD),
             0, // start
-            6, // end
+            12, // end
             Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         )
     }
 
-    fun backBtnOnclick() {
+    fun backBtnOnclick() { // 메인 화면을 돌아가기
         finish()
     }
 }
