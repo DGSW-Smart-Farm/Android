@@ -4,6 +4,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="SmartFarm">SmartFarm</string>
+    <string name="detailViewTitle">Smart Farm</string>
     <string name="farmState">농장 상태</string>
+    <string name="ledState"><b>햇빛이</b> 부족해요</string>
+    <string name="ledControl"><b>LED 기능을</b> 이용해서 \n빛을 늘려주세요</string>
+    <string name="moreShow">더보기</string>
+    <string name="waterView">수분</string>
+    <string name="ledView">햇빛</string>
+    <string name="tempView">온도</string>
+    <string name="cameraView">카메라</string>
 
 </resources>
