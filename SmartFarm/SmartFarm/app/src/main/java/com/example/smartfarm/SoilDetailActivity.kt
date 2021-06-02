@@ -15,7 +15,7 @@ class SoilDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_soil_detail)
 
-        var soilCondition:Int = 70 //토양상태
+        var soilCondition:Int = 50 //토양상태
         val soilProgressbar:ProgressBar = findViewById(R.id.soil_progressbar)
         val tvMax:TextView = findViewById(R.id.tv_max)
         val tvavg:TextView = findViewById(R.id.tv_avg)
