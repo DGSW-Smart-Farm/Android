@@ -76,7 +76,7 @@ class MainViewModel : ViewModel() {
     }
 
     private fun mainViewText() {
-        if(MainViewModel().ledstatus.value!!){
+        if (MainViewModel().ledstatus.value!!) {
             MainViewModel().ledText.value = "ON"
         } else {
             MainViewModel().ledText.value = "OFF"
@@ -85,7 +85,10 @@ class MainViewModel : ViewModel() {
         MainViewModel().waterText.value = "${MainViewModel().waterStateValue.value}%"
         MainViewModel().tempText.value = "${MainViewModel().tempStateValue.value}도"
 
-        Log.e("123", "${MainViewModel().ledText.value}  ${MainViewModel().waterText.value} ${MainViewModel().tempText.value}")
+        Log.e(
+            "123",
+            "${MainViewModel().ledText.value}  ${MainViewModel().waterText.value} ${MainViewModel().tempText.value}"
+        )
     }
 }
 
