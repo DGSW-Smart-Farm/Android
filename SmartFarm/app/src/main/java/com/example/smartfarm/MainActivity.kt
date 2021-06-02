@@ -34,17 +34,12 @@ class MainActivity : AppCompatActivity() {
 
         initStateText() //초기값 설정
         model.loadFarmService() // retrofit으로 값 전달 받기
-
-        binding.refreshLayout.setOnRefreshListener{ // 새로고침 처리
-            model.loadFarmService()
-            binding.refreshLayout.isRefreshing = false // 새로고침을 완료하면 아이콘을 없앤다
-        }
     }
 
     private fun initStateText() { //초기값 설정
-        model.waterText.value = "로딩중"
-        model.tempText.value = "로딩중"
-        model.ledText.value = "로딩중"
+        model.waterText.value = "0%"
+        model.tempText.value = "0도"
+        model.ledText.value = "OFF"
     }
 
     fun waterStateViewClick(){ // 수분 상세화면 클릭 시
