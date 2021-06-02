@@ -8,7 +8,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/title_led"
+        android:id="@+id/title_soil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/led_title_txt"
+            android:id="@+id/soil_title_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/led_backbtn"
+            android:id="@+id/soil_backbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -45,17 +45,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/led_title_img"
+            android:id="@+id/soil_title_img"
             android:layout_width="337dp"
             android:layout_height="200dp"
             android:layout_marginTop="25dp"
             android:src="@drawable/soil_title_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/led_title_txt" />
+            app:layout_constraintTop_toBottomOf="@id/soil_title_txt" />
 
         <TextView
-            android:id="@+id/LED"
+            android:id="@+id/SOIL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -64,8 +64,8 @@
             android:text="비료"
             android:textColor="#fff"
             android:textSize="27sp"
-            app:layout_constraintBottom_toBottomOf="@+id/led_title_img"
-            app:layout_constraintStart_toStartOf="@+id/led_title_img" />
+            app:layout_constraintBottom_toBottomOf="@+id/soil_title_img"
+            app:layout_constraintStart_toStartOf="@+id/soil_title_img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -77,14 +77,14 @@
         android:layout_marginTop="42dp"
         android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_led">
+        app:layout_constraintTop_toBottomOf="@id/title_soil">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/led_state_title"
+                android:id="@+id/soil_state_title"
                 android:layout_width="80dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="34dp"
@@ -92,57 +92,157 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ProgressBar
+                android:id="@+id/soil_progressbar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="250dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="130dp"
+                android:layout_marginEnd="228dp"
+                android:layout_marginBottom="199dp"
+                android:max="100"
+                android:progress="50"
+                android:progressDrawable="@drawable/progressbar_horizontal"
+                android:rotation="270"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/soil_state_title"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/tv_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="308dp"
+                android:text="많음"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/soil_state_title" />
+
+            <TextView
+                android:id="@+id/tv_avg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:text="보통"
+                app:layout_constraintBottom_toTopOf="@+id/tv_min"
+                app:layout_constraintEnd_toEndOf="@+id/soil_progressbar"
+                app:layout_constraintTop_toBottomOf="@+id/tv_max"
+                app:layout_constraintVertical_bias="0.503" />
+
+            <TextView
+                android:id="@+id/tv_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="76dp"
+                android:layout_marginBottom="84dp"
+                android:text="적음"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/middlesoilcondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/tv_max"
+                app:layout_constraintTop_toBottomOf="@+id/highsoilcondition"
+                app:srcCompat="@drawable/soilcondition"
+                android:background="@drawable/square_background_border_black"
+                android:padding="2dp"/>
+
+            <ImageView
+                android:id="@+id/lowsoilcondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/tv_min"
+                app:layout_constraintTop_toBottomOf="@+id/middlesoilcondition"
+                app:srcCompat="@drawable/lowsoilcondition"
+                android:background="@drawable/square_background_border_black"
+                android:padding="2dp"/>
+
+            <ImageView
+                android:id="@+id/highsoilcondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/tv_max"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/highsoilcondition"
+                android:background="@drawable/square_background_border_black"
+                android:padding="2dp"/>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </ScrollView>
 
-    <ProgressBar
-        android:id="@+id/soil_progressbar"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="250dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="155dp"
-        android:layout_marginEnd="233dp"
-        android:layout_marginBottom="199dp"
-        android:max="100"
-        android:progress="50"
-        android:progressDrawable="@drawable/progressbar_horizontal"
-        android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+<!--    <ProgressBar-->
+<!--        android:id="@+id/soil_progressbar"-->
+<!--        style="@android:style/Widget.ProgressBar.Horizontal"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginTop="155dp"-->
+<!--        android:layout_marginEnd="228dp"-->
+<!--        android:layout_marginBottom="199dp"-->
+<!--        android:max="100"-->
+<!--        android:progress="50"-->
+<!--        android:progressDrawable="@drawable/progressbar_horizontal"-->
+<!--        android:rotation="270"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/scrollView3"-->
+<!--        app:layout_constraintVertical_bias="1.0" />-->
 
-    <TextView
-        android:id="@+id/tv_max"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="308dp"
-        android:text="많음"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+<!--    <TextView-->
+<!--        android:id="@+id/tv_max"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:layout_marginEnd="308dp"-->
+<!--        android:text="많음"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />-->
 
-    <TextView
-        android:id="@+id/tv_avg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
-        android:text="보통"
-        app:layout_constraintBottom_toTopOf="@+id/tv_min"
-        app:layout_constraintEnd_toEndOf="@+id/soil_progressbar"
-        app:layout_constraintTop_toBottomOf="@+id/tv_max" />
+<!--    <TextView-->
+<!--        android:id="@+id/tv_avg"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="80dp"-->
+<!--        android:text="보통"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/tv_min"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/soil_progressbar"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_max"-->
+<!--        app:layout_constraintVertical_bias="0.503" />-->
 
-    <TextView
-        android:id="@+id/tv_min"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginBottom="100dp"
-        android:text="적음
-"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/tv_min"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="76dp"-->
+<!--        android:layout_marginBottom="84dp"-->
+<!--        android:text="적음-->
+<!--"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="25dp"-->
+<!--        android:layout_marginTop="37dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/tv_max"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/scrollView3"-->
+<!--        app:srcCompat="@drawable/soilcondition" />-->
 
 
     <!--    <SeekBar-->
