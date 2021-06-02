@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.example.smartfarm.MainActivity" />
+
+        <variable
+            name="model"
+            type="com.example.smartfarm.viewModel.MainViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/viewImage"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:background="@drawable/background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/smartFarmText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/novirus"
+                android:text="@string/detailViewTitle"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/viewImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="-130dp"
+            android:background="@drawable/corner"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/farmTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:fontFamily="@font/sdswagger"
+                android:text="@string/farmState"
+                android:textColor="@color/farmState"
+                android:textSize="28sp" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/waterStateLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="@{() -> activity.waterStateViewClick()}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/dewImageView"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
+                                android:layout_margin="5dp"
+                                app:srcCompat="@drawable/water_ic" />
+
+                            <TextView
+                                android:id="@+id/waterTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/dxmovie"
+                                android:text="@string/waterView"
+                                android:textColor="@color/stateName"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/waterStateText"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/main_corner"
+                                android:fontFamily="@font/dxmovie"
+                                android:gravity="center"
+                                android:text="@{model.waterText}"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tempStateLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:onClick="@{() -> activity.tempStateViewClick()}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/tempmageView"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
+                                android:layout_margin="5dp"
+                                app:srcCompat="@drawable/temp_ic" />
+
+                            <TextView
+                                android:id="@+id/tempTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/dxmovie"
+                                android:text="@string/tempView"
+                                android:textColor="@color/stateName"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/tempStateText"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/main_corner"
+                                android:fontFamily="@font/dxmovie"
+                                android:gravity="center"
+                                android:text="@{model.tempText}"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ledStateLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:onClick="@{() -> activity.ledStateViewClick()}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ledmageView"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
+                                android:layout_margin="5dp"
+                                app:srcCompat="@drawable/sun_ic" />
+
+                            <TextView
+                                android:id="@+id/ledTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/dxmovie"
+                                android:text="@string/ledView"
+                                android:textColor="@color/stateName"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/ledStateText"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/main_corner"
+                                android:fontFamily="@font/dxmovie"
+                                android:gravity="center"
+                                android:text="@{model.ledText}"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/soilStateLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:onClick="@{() -> activity.soilStateViewClick()}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/soilmageView"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
+                                android:layout_margin="5dp"
+                                app:srcCompat="@drawable/soil_ic" />
+
+                            <TextView
+                                android:id="@+id/soilTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/dxmovie"
+                                android:text="@string/soilView"
+                                android:textColor="@color/stateName"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/soilStateText"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/main_corner"
+                                android:fontFamily="@font/dxmovie"
+                                android:gravity="center"
+                                android:text="@string/moreShow"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cameraStateLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:onClick="@{() -> activity.cameraViewClick()}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/cameramageView"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
+                                android:layout_margin="5dp"
+                                app:srcCompat="@drawable/camera_ic" />
+
+                            <TextView
+                                android:id="@+id/cameraTextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/dxmovie"
+                                android:text="@string/cameraView"
+                                android:textColor="@color/stateName"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/cameraStateText"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/main_corner"
+                                android:fontFamily="@font/dxmovie"
+                                android:gravity="center"
+                                android:text="@string/moreShow"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
