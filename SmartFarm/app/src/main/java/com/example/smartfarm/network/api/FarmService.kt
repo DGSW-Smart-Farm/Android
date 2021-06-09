@@ -1,17 +1,23 @@
 package com.example.smartfarm.network.api
 
 import com.example.smartfarm.network.model.getAll
-import retrofit2.http.FieldMap
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface FarmService {
     @GET("get_all_sensor")
     fun getSensorAll(): retrofit2.Call<getAll>
 
-//    @POST("control_water")
-//    fun postControlWater(
-//        @FieldMap
-//        param: HashMap<String, String>
-//    ): retrofit2.Call<controlWaterResult>
+    @FormUrlEncoded
+    @POST("control_water/")
+    fun postControlWater(
+        @FieldMap
+        params: HashMap<String?, Boolean?>
+    ): retrofit2.Call<Void>
+
+    @FormUrlEncoded
+    @POST("control_led/")
+    fun postControlLed(
+        @FieldMap
+        params: HashMap<String?, Boolean?>
+    ): retrofit2.Call<Void>
 }

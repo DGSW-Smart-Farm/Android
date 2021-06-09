@@ -4,7 +4,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.example.smartfarm.databinding.ActivitySoilDetailBinding
 
@@ -16,8 +15,9 @@ class SoilDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_soil_detail)
 
+        binding.soilDetail = this
         getSoilState()
-
+        setProgress()
     }
 
     private fun getSoilState() {

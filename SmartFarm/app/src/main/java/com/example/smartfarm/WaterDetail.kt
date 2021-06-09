@@ -1,6 +1,5 @@
 package com.example.smartfarm
 
-import android.R.attr.animation
 import android.animation.ValueAnimator
 import android.graphics.Color
 import android.graphics.Typeface
@@ -10,9 +9,14 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.smartfarm.databinding.ActivityWaterDetailBinding
+import com.example.smartfarm.network.RetrofitConnection
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class WaterDetail : AppCompatActivity() {
@@ -49,9 +53,8 @@ class WaterDetail : AppCompatActivity() {
         if (intent.hasExtra("waterValue")) {
             waterValue = intent.getIntExtra("waterValue", 0)
         }
-        if (intent.hasExtra("waterState")){
-            //waterState = intent.getIntExtra("waterState", 0)
-            waterState = -2
+        if (intent.hasExtra("waterState")) {
+            waterState = intent.getIntExtra("waterState", 0)
         } else {
             waterState = -2; // 값을 전달 받지 못했을 때
         }
@@ -68,7 +71,7 @@ class WaterDetail : AppCompatActivity() {
     }
 
     private fun initTextView() { // 설명 text 굵기 조절
-        if(waterState == -1){
+        if (waterState == -1) {
             val str1: String = "수분이 부족해요"
             val str2: String = "물주기 기능을 이용해 물을 주세요"
 
@@ -99,7 +102,7 @@ class WaterDetail : AppCompatActivity() {
                 6, // end
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE
             )
-        } else if(waterState == 0){
+        } else if (waterState == 0) {
             val str1: String = "수분이 적당해요"
             val str2: String = "수분이 아주 완벽한 상태에요"
 
@@ -130,7 +133,7 @@ class WaterDetail : AppCompatActivity() {
                 9, // end
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE
             )
-        } else if (waterState == 1){
+        } else if (waterState == 1) {
             val str1: String = "수분이 과해요"
             val str2: String = "과유불급"
 
@@ -180,7 +183,30 @@ class WaterDetail : AppCompatActivity() {
     }
 
     fun onOffBtnOnclick() { // numberPicker 버튼 클릭 시
-        Log.d("123", "${binding.onOffPicker.value}")
+        if(waterState != -2){
+            var retrofitConnection = RetrofitConnection
+            var statusValue: Boolean = false
+
+            statusValue = binding.onOffPicker.value != 0
+            val params = HashMap<String?, Boolean?>()
+            params["status"] = statusValue
+
+            val call: Call<Void> = retrofitConnection.farmService.postControlWater(params)
+            call.enqueue(object : Callback<Void> {
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Log.d("postError", "$t")
+                    Toast.makeText(applicationContext, "스마트 팜으로 수분 상태 요청을 실패했습니다.", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    Log.d("post", "${response.body()}")
+                    Toast.makeText(applicationContext, "스마트 팜으로 수분 상태 요청을 성공했습니다.", Toast.LENGTH_SHORT).show()
+                }
+
+            })
+        } else {
+            Toast.makeText(this, "서버와 연결 되어있지 않습니다.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     fun backBtnOnclick() { // 메인 화면을 돌아가기

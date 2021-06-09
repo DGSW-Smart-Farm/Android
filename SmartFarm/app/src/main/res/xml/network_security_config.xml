@@ -3,5 +3,6 @@
     <domain-config cleartextTrafficPermitted="true">
         <!-- <domain includeSubdomains="true">dgsw.kr</domain> -->
         <domain includeSubdomains="false">10.80.163.68</domain>
+        <domain includeSubdomains="false">10.80.163.229</domain>
     </domain-config>
 </network-security-config>

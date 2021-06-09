@@ -86,7 +86,6 @@ class MainViewModel : ViewModel() {
         } else {
             ledText.value = "OFF"
         }
-
         waterText.value = "${waterStateValue.value}%"
         tempText.value = "${tempStateValue.value}도"
 

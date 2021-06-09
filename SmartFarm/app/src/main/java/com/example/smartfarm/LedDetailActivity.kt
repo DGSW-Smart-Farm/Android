@@ -9,8 +9,13 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.smartfarm.databinding.ActivityLedDetailBinding
+import com.example.smartfarm.network.RetrofitConnection
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LedDetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityLedDetailBinding
@@ -46,15 +51,17 @@ class LedDetailActivity : AppCompatActivity() {
     }
 
     private fun setStateImg(){
-        if (ledValue == true) {
+        if (ledValue) {
             binding.ledStateImg.setImageResource(R.drawable.led_state_img)
+            binding.ledonoffpicker.value = 1
         } else {
             binding.ledStateImg.setImageResource(R.drawable.ledoff)
+            binding.ledonoffpicker.value = 0
         }
     }
 
-    fun initTextView() {
-        if (ledValue == false){
+    private fun initTextView() {
+        if (!ledValue){
             val str : String = "LED 기능이 꺼져있어요"
             spannable = SpannableStringBuilder(str)
             spannable.setSpan(
@@ -67,7 +74,7 @@ class LedDetailActivity : AppCompatActivity() {
                 0, 7,
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE
             )
-        } else if (ledValue == true) {
+        } else if (ledValue) {
             val str: String = "LED 기능이 켜져있어요"
             spannable = SpannableStringBuilder(str)
             spannable.setSpan(
@@ -97,7 +104,27 @@ class LedDetailActivity : AppCompatActivity() {
     }
 
     fun onOffBtnOnclick() { // numberPicker 버튼 클릭 시
-        Log.d("123", "${binding.ledonoffpicker.value}")
+        var retrofitConnection = RetrofitConnection
+        var statusValue: Boolean = false
+
+        statusValue = binding.ledonoffpicker.value != 0
+        val params = HashMap<String?, Boolean?>()
+        params["status"] = statusValue
+
+
+        val call: Call<Void> = retrofitConnection.farmService.postControlLed(params)
+        call.enqueue(object : Callback<Void> {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.d("postError", "$t")
+                Toast.makeText(applicationContext, "스마트 팜으로 LED 상태 요청을 실패했습니다.", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                Log.d("post", "${response.body()}")
+                Toast.makeText(applicationContext, "스마트 팜으로 LED 상태 요청을 성공했습니다.", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     fun backBtnOnclick() {
