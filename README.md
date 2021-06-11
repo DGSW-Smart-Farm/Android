@@ -55,19 +55,19 @@
 
 - 메인 화면 (재현)
 
-  ![메인 화면](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611195803133.png)
+  ![메인 화면](https://user-images.githubusercontent.com/54098402/121676081-2ca5f400-caef-11eb-94ea-b326e7564973.png)
 
 - 수분 상세 화면 (재현)
 
   - 수분 상세 현황
 
-    ![수분 상세 현황](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611195832328.png)
+    ![수분 상세 현황](https://user-images.githubusercontent.com/54098402/121677084-61667b00-caf0-11eb-997a-b2c548904571.png)
 
     
 
   - 물주기
 
-    ![물주기](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611195911942.png)
+    ![물주기](https://user-images.githubusercontent.com/54098402/121677140-7511e180-caf0-11eb-8bdd-ec80ea9595b7.png)
 
     
 
@@ -75,19 +75,19 @@
 
 - 온도 상세화면 (주영)
 
-  ![image-20210611200019378](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611200019378.png)
+  ![image-20210611200019378](https://user-images.githubusercontent.com/54098402/121677187-85c25780-caf0-11eb-977f-c9d180620289.png)
 
   
 
 - LED 상세 화면 (민혁)
 
-  ![image-20210611200043688](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611200043688.png)
+  ![image-20210611200043688](https://user-images.githubusercontent.com/54098402/121677230-91ae1980-caf0-11eb-8c42-0afab7354628.png)
 
   
 
 - 비료 상세 화면 (민교)
 
-  ![image-20210611200108842](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611200108842.png)
+  ![image-20210611200108842](https://user-images.githubusercontent.com/54098402/121677258-9a9eeb00-caf0-11eb-8b04-598ba1f50e74.png)
 
 
 
@@ -95,11 +95,11 @@
 
 - 글씨를 부분별로 굵게 하고 싶어요
 
-  ![figma 디자인](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210602153508975.png)
+  ![figma 디자인](https://user-images.githubusercontent.com/54098402/121675826-e3ee3b00-caee-11eb-9ef2-187bec96cef0.png)
 
   이렇게 "수분이 적당해요",  "정말 추운날 입니다..." 등 상세화면 페이지에 이런 식으로 굵게 되어있는 부분이 있었는데, 한 번도 해보지 않았던 부분이라 어떻게 처리해야 할지에 대한 고민이 생겼습니다. 구글링을 해보면서 SpannableStringBuilder라는 것을 알게 되었고 여러 글들을 보며 공부하고 실제로 사용해보았습니다.
 
-  ![spannable](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210602153912902.png)
+  ![spannable](https://user-images.githubusercontent.com/54098402/121675855-ebaddf80-caee-11eb-9114-d4cf6f26aeed.png)
 
   
 
@@ -107,7 +107,7 @@
 
   처음 프로젝트를 시작할 때 디자인을 구상하여 figma에서 디자인을 제작한 후 개발을 시작했는데 1주일이 지나고 나니 디자인이 완전히 다르게 변경되어 xml을 다시 제작하는 일이 발생하고, 바뀐 디자인에서도 디자인이 크게 변경되는 부분들이 있었습니다. 프로젝트를 시작한 지 초기 단계라 그런지 디자인 변경이 좀 잦았는데 처음에는 디자인 변경으로 혼란스럽긴 했지만 시간이 지나고 디자인이 완벽하게 확정되면서 개발을 수월하게 진행할 수 있어 좋았습니다.
 
-  ![확정된 Figma 디자인 페이지](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210602154748244.png)
+  ![확정된 Figma 디자인 페이지](https://user-images.githubusercontent.com/54098402/121675879-f2d4ed80-caee-11eb-8795-b56af649e607.png)
 
   
 
