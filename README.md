@@ -4,6 +4,27 @@
 
 
 
+#### 팀원
+
+- 담당 선생님
+  - 김승호 선생님
+
+- 안드로이드
+  - 임재현
+  - 지민혁
+  - 서민교
+  - 조주영
+- IOS
+  - 김부성
+- Server
+  - 서승우
+  - 박준홍
+- 하드웨어
+  - 전아현
+  - 김지훈
+
+
+
 #### 사용기술
 
 - Kotlin
@@ -32,7 +53,41 @@
 
 #### 완성된 스마트팜 Application (Android)
 
+- 메인 화면 (재현)
 
+  ![메인 화면](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611195803133.png)
+
+- 수분 상세 화면 (재현)
+
+  - 수분 상세 현황
+
+    ![수분 상세 현황](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611195832328.png)
+
+    
+
+  - 물주기
+
+    ![물주기](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611195911942.png)
+
+    
+
+
+
+- 온도 상세화면 (주영)
+
+  ![image-20210611200019378](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611200019378.png)
+
+  
+
+- LED 상세 화면 (민혁)
+
+  ![image-20210611200043688](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611200043688.png)
+
+  
+
+- 비료 상세 화면 (민교)
+
+  ![image-20210611200108842](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210611200108842.png)
 
 
 
@@ -44,7 +99,7 @@
 
   이렇게 "수분이 적당해요",  "정말 추운날 입니다..." 등 상세화면 페이지에 이런 식으로 굵게 되어있는 부분이 있었는데, 한 번도 해보지 않았던 부분이라 어떻게 처리해야 할지에 대한 고민이 생겼습니다. 구글링을 해보면서 SpannableStringBuilder라는 것을 알게 되었고 여러 글들을 보며 공부하고 실제로 사용해보았습니다.
 
-  ![image-20210602153912902](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210602153912902.png)
+  ![spannable](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20210602153912902.png)
 
   
 
