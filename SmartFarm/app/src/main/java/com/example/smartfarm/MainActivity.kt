@@ -3,18 +3,11 @@ package com.example.smartfarm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import com.example.smartfarm.databinding.ActivityMainBinding
-import com.example.smartfarm.network.RetrofitConnection
-import com.example.smartfarm.network.model.getAll
 import com.example.smartfarm.viewModel.MainViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 

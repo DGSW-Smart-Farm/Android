@@ -9,8 +9,8 @@ object RetrofitConnection {
 
     init {
         val retrofit = Retrofit.Builder()
-            //.baseUrl("http://10.80.163.68:8000/v1/")
-            .baseUrl("http://10.80.163.229:5000/v1/")
+            .baseUrl("http://10.80.163.68:8000/v1/")
+            //.baseUrl("http://10.80.163.229:5000/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

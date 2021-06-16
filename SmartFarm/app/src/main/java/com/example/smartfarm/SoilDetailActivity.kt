@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.smartfarm.databinding.ActivitySoilDetailBinding
 
@@ -28,25 +29,30 @@ class SoilDetailActivity : AppCompatActivity() {
     }
 
     private fun setProgress() {
-        var soilCondition: Int = 0
+        if(soilState == -2){
+            Toast.makeText(this, "서버와 연결을 실패했습니다...", Toast.LENGTH_SHORT).show()
+            binding.soilProgressbar.progress = 0
+        } else {
+            var soilCondition: Int = 0
 
-        if (soilState == 1) {
-            soilCondition = 90 //토양상태
+            if (soilState == 1) {
+                soilCondition = 90 //토양상태
 
-            binding.highsoilcondition.visibility = View.VISIBLE
-            binding.tvMax.setTextColor(Color.parseColor("#000000"))
-        } else if (soilState == 0) {
-            soilCondition = 50 //토양상태
+                binding.highsoilcondition.visibility = View.VISIBLE
+                binding.tvMax.setTextColor(Color.parseColor("#000000"))
+            } else if (soilState == 0) {
+                soilCondition = 50 //토양상태
 
-            binding.middlesoilcondition.visibility = View.VISIBLE
-            binding.tvAvg.setTextColor(Color.parseColor("#000000"))
-        } else if (soilState == -1) {
-            soilCondition = 10
+                binding.middlesoilcondition.visibility = View.VISIBLE
+                binding.tvAvg.setTextColor(Color.parseColor("#000000"))
+            } else if (soilState == -1) {
+                soilCondition = 10
 
-            binding.lowsoilcondition.visibility = View.VISIBLE
-            binding.tvMin.setTextColor(Color.parseColor("#000000"))
+                binding.lowsoilcondition.visibility = View.VISIBLE
+                binding.tvMin.setTextColor(Color.parseColor("#000000"))
+            }
+            binding.soilProgressbar.progress = soilCondition
         }
-        binding.soilProgressbar.progress = soilCondition
     }
 
     fun backBtnOnclick() {

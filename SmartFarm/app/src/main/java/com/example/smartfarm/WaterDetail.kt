@@ -54,7 +54,7 @@ class WaterDetail : AppCompatActivity() {
             waterValue = intent.getIntExtra("waterValue", 0)
         }
         if (intent.hasExtra("waterState")) {
-            waterState = intent.getIntExtra("waterState", 0)
+            waterState = intent.getIntExtra("waterState", -2)
         } else {
             waterState = -2; // 값을 전달 받지 못했을 때
         }

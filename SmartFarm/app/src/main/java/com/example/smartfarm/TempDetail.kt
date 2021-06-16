@@ -39,9 +39,7 @@ class TempDetail : AppCompatActivity() {
             tempValue = intent.getIntExtra("tempValue", 0)
         }
         if (intent.hasExtra("tempState")) {
-            tempState = intent.getIntExtra("tempState", 0)
-        } else {
-            tempState = -2
+            tempState = intent.getIntExtra("tempState", -2)
         }
     }
 
@@ -51,6 +49,8 @@ class TempDetail : AppCompatActivity() {
             val progress = animator.animatedValue as Int
             binding.tempCirclebar.progress = progress
         }
+
+        binding.tempText.text = "${tempValue}도"
         animator.duration = 1500
         animator.start()
     }
@@ -146,6 +146,21 @@ class TempDetail : AppCompatActivity() {
                 6, // end
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE
             )
+        } else {
+            spannable1 = SpannableStringBuilder("값을 전달받지")
+            spannable1.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, // start
+                7, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable1.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0, // start
+                7, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable2 = SpannableStringBuilder("못했습니다.")
         }
     }
 
