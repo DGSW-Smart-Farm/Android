@@ -49,8 +49,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="39dp"
-                android:src="@drawable/ic_backbtn"
                 android:onClick="@{() -> soilDetail.backBtnOnclick()}"
+                android:src="@drawable/ic_backbtn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

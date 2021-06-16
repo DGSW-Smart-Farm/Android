@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="LedDetail"
             type="com.example.smartfarm.LedDetailActivity" />
@@ -112,7 +113,7 @@
                             android:layout_width="113dp"
                             android:layout_height="113dp"
                             android:layout_marginStart="57dp"
-                            android:src="@drawable/led_state_img"/>
+                            android:src="@drawable/led_state_img" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -153,6 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="48dp"
+                        android:descendantFocusability="blocksDescendants"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.34"
@@ -164,13 +166,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="48dp"
-                        android:text="실행"
-                        android:textStyle="bold"
-                        android:onClick="@{() -> LedDetail.onOffBtnOnclick()}"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/nanumsquareac"
                         android:background="@drawable/on_off_button_background"
+                        android:fontFamily="@font/nanumsquareac"
+                        android:onClick="@{() -> LedDetail.onOffBtnOnclick()}"
+                        android:text="실행"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ledonoffpicker"
